@@ -1,0 +1,60 @@
+<div class="row mt-4" style="margin-bottom: 100px;">
+    <div class="col-md-4 offset-4 shadow">
+    <form action="" [formGroup]="signUp" (ngSubmit)="onSubmit()">
+        <div class="head"><label for="" class="offset-5">Sign UP</label></div>
+        <div class="mb-2">
+            <label for="" class="col-form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name"
+            [ngClass]="{
+                error:(submitted || f['firstName'].touched) && f['firstName'].errors
+            }"
+            />
+            <div *ngIf="submitted && f['firstName'].errors" class="text-danger small">
+                <span *ngIf="f['firstName'].errors?.['required']">First Name is Required</span>                
+                <span *ngIf="f['firstName'].errors?.['minlength']">First Name Must Have More Then 3 Letters</span>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="" class="col-form-label">Second Name</label>
+            <input type="text" class="form-control" formControlName="secondName" placeholder="Enter Second Name"
+            [ngClass]="{
+                error:(submitted || f['secondName'].touched) && f['secondName'].errors
+            }"
+            />
+            <div *ngIf="submitted && f['secondName'].errors" class="text-danger small">
+                <span *ngIf="f['secondName'].errors?.['required']">Second Name is Required</span>                
+                <span *ngIf="f['secondName'].errors?.['minlength']">Second Name Must Have More Then 3 Letters</span>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="" class="col-form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter Password"
+            [ngClass]="{
+                error:(submitted || f['password'].touched) && f['password'].errors
+            }"
+            />
+            <div *ngIf="submitted && f['password'].errors" class="text-danger small">
+                <span *ngIf="f['password'].errors?.['required']">Password is Required</span>                
+                <span *ngIf="f['password'].errors?.['minlength']">Password Must Have More Then 8 Letters</span>                
+                <span *ngIf="f['password'].errors?.['maxlength']">Password Must Have Less Then 15 Letters</span>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="" class="col-form-label">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirm" placeholder="Enter Second Name"
+            [ngClass]="{
+                error:(submitted || f['confirm'].touched) && f['confirm'].errors
+            }"
+            />
+            <div *ngIf="submitted && f['confirm'].errors" class="text-danger small">
+                <span *ngIf="f['confirm'].errors?.['required']">Confirm Password is Required</span>                
+                <span *ngIf="f['confirm'].errors?.['minlength']">Confirm Password Must Have More Then 8 Letters</span>                
+                <span *ngIf="f['confirm'].errors?.['maxlength']">Confirm Password Must Have Less Then 15 Letters</span>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="offset-5" style="border-radius: 10px; padding: 10px; font-size: larger;">Submit</button>
+        </div>
+    </form>
+    </div>
+</div>

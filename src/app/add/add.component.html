@@ -1,0 +1,56 @@
+<div class="row offset-2">
+    <div class="col-3 mt-3 p-4 mr-4">
+        <img src={{url}} alt="" height="200px" width="200px">
+        <input type="file" (change)="onFileSelected(imageInput.files)" #imageInput>
+    </div>
+    <div class="col-6 ml-4">
+        <form action="" [formGroup] = "upload">
+            <div class="mb-2">
+                <label for="" class="col-form-label">First Name <sup>*</sup></label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name"
+                [ngClass]="{
+                    error:(submitted || f['firstName'].touched) && f['firstName'].errors
+                }"
+                [(ngModel)]="first"
+                />
+                <div *ngIf="submitted && f['firstName'].errors" class="text-danger small">
+                    <span *ngIf="f['firstName'].errors?.['required']">First Name is Required</span>                
+                    <span *ngIf="f['firstName'].errors?.['minlength']">First Name Must Have More Then 3 Letters</span>                
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="" class="col-form-label">Second Name<sup>*</sup></label>
+                <input type="text" class="form-control" formControlName="secondName" placeholder="Enter Second Name"
+                [ngClass]="{
+                    error:(submitted || f['secondName'].touched) && f['secondName'].errors
+                }"
+                [(ngModel)]="last"
+                />
+                <div *ngIf="submitted && f['secondName'].errors" class="text-danger small">
+                    <span *ngIf="f['secondName'].errors?.['required']">Second Name is Required</span>                
+                    <span *ngIf="f['secondName'].errors?.['minlength']">Second Name Must Have More Then 3 Letters</span>                
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="" class="col-form-label">Phone No.<sup>*</sup></label>
+                <input type="number" class="form-control" formControlName="contact" placeholder="Enter Phone Number"
+                [ngClass]="{
+                    error:(submitted || f['contact'].touched) && f['contact'].errors
+                }"
+                [(ngModel)]="contact"
+                />
+                <div *ngIf="submitted && f['contact'].errors" class="text-danger small">
+                    <span *ngIf="f['contact'].errors?.['required']">Phone Number is Required</span>                
+                    <span *ngIf="f['contact'].errors?.['min'] || f['contact'].errors?.['max']">Phone Number Must Have 10 Number</span>                
+                </div>
+            </div>
+            
+             <div class="mb-3">
+                <button class="offset-3" style="border-radius: 10px; padding: 10px; font-size: larger;" (click)="onSubmit()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<app-addedemp [value]="emp"></app-addedemp>
+<app-addedemp [ee]="qw" #box></app-addedemp>
+<h2 >{{box.value}}</h2>

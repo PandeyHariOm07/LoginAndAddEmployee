@@ -1,0 +1,29 @@
+<div class="row" style="margin-top: 70px;">
+    <div class="col-8 offset-4">
+        <strong class=" display-4" style="margin-left: -20px; margin-bottom: 10px;">Employee Details</strong>
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Post</th>
+                    <th>Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of employee">
+                    <td> {{e.id}} </td>
+                    <td> 
+                        {{e.Name}}
+                    </td>
+                    <td>
+                        {{e.Post}}
+                    </td>
+                    <td>
+                        {{e.con}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
